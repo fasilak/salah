@@ -56,7 +56,8 @@ function App() {
 
   const startSequence = () => {
     if (!selectedSalah || selectedSalah.sequence.length === 0) return
-    
+    currentAudioRef.current = new Audio();
+    currentAudioRef.current.play();
     setIsSequencePlaying(true)
     setIsSequencePaused(false)
     setCurrentSequenceIndex(0)
