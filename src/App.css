@@ -1,42 +1,280 @@
-#root {
-  max-width: 1280px;
+/* App Container */
+.app-container {
+  max-width: 600px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Header */
+.header {
+  margin-bottom: 2rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.header h1 {
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.header p {
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+/* Language Selection */
+.language-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.language-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 150px;
+}
+
+.language-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Change Language Button */
+.change-language-btn {
+  background: #6c757d;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
+}
+
+.change-language-btn:hover {
+  background: #5a6268;
+}
+
+/* Salahs Container */
+.salahs-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Salah Buttons */
+.salah-btn {
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  color: #333;
+  border: none;
+  padding: 1.5rem 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(252, 182, 159, 0.3);
+}
+
+.salah-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(252, 182, 159, 0.5);
+  background: linear-gradient(135deg, #fcb69f 0%, #ffecd2 100%);
+}
+
+.salah-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(252, 182, 159, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 1rem;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .language-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .language-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .salahs-container {
+    grid-template-columns: 1fr;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+/* Audio Playing Screen */
+.audio-playing {
+  text-align: center;
+  padding: 2rem;
+}
+
+.audio-playing h1 {
+  color: #667eea;
+  margin-bottom: 2rem;
+}
+
+.audio-indicator {
+  margin: 3rem 0;
+}
+
+.pulse-circle {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7);
+  }
+  70% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 20px rgba(102, 126, 234, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(102, 126, 234, 0);
   }
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
+.audio-note {
+  font-style: italic;
   color: #888;
+  font-size: 0.9rem;
+}
+
+/* Salah Details Screen */
+.salah-details {
+  max-width: 500px;
+  text-align: left;
+}
+
+.salah-info h2 {
+  color: #667eea;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.salah-description {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin: 1.5rem 0;
+  border-left: 4px solid #667eea;
+}
+
+.salah-description h3 {
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.salah-description p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.play-again-btn {
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.play-again-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.3);
+}
+
+.back-btn {
+  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(33, 150, 243, 0.3);
+}
+
+.stop-btn {
+  background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  margin-top: 2rem;
+}
+
+.stop-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(244, 67, 54, 0.3);
+}
+
+/* Mobile Responsive for New Screens */
+@media (max-width: 768px) {
+  .salah-details {
+    max-width: 100%;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .action-buttons button {
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  .pulse-circle {
+    width: 80px;
+    height: 80px;
+  }
 }

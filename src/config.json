@@ -1,0 +1,574 @@
+{
+    "salahs": [
+        {
+            "name": "Fajr",
+            "audio": "fajr",
+            "sequence": [
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Supplication",
+                    "audio": "2"
+                },
+                {
+                    "name": "Fatiha",
+                    "audio": "3"
+                },
+                {
+                    "name": "Surah",
+                    "audio": "S1"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Qaumah",
+                    "audio": "5"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Sujud",
+                    "audio": "6"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Jalsa",
+                    "audio": "7"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Sujud",
+                    "audio": "6"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Fatiha",
+                    "audio": "3"
+                },
+                {
+                    "name": "Surah",
+                    "audio": "S2"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Qaumah",
+                    "audio": "5"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Sujud",
+                    "audio": "6"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Jalsa",
+                    "audio": "7"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Sujud",
+                    "audio": "6"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Tashahhud",
+                    "audio": "8"
+                },
+                {
+                    "name": "Tashahhud",
+                    "audio": "9"
+                },
+                {
+                    "name": "Salam",
+                    "audio": "10"
+                }
+            ]
+        },
+        {
+            "name": "Lohar",
+            "audio": "lohar",
+            "sequence": [
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Supplication",
+                    "audio": "2"
+                },
+                {
+                    "name": "Fatiha",
+                    "audio": "3"
+                },
+                {
+                    "name": "Surah",
+                    "audio": "S1"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Qaumah",
+                    "audio": "5"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Sujud",
+                    "audio": "6"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Jalsa",
+                    "audio": "7"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Sujud",
+                    "audio": "6"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Fatiha",
+                    "audio": "3"
+                },
+                {
+                    "name": "Surah",
+                    "audio": "S2"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Qaumah",
+                    "audio": "5"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Sujud",
+                    "audio": "6"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Jalsa",
+                    "audio": "7"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Sujud",
+                    "audio": "6"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Tashahhud",
+                    "audio": "8"
+                },
+                {
+                    "name": "Tashahhud",
+                    "audio": "9"
+                },
+                {
+                    "name": "Salam",
+                    "audio": "10"
+                }
+            ]
+        },
+        {
+            "name": "Asr",
+            "audio": "asr",
+            "sequence": [
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Supplication",
+                    "audio": "2"
+                },
+                {
+                    "name": "Fatiha",
+                    "audio": "3"
+                },
+                {
+                    "name": "Surah",
+                    "audio": "S1"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Qaumah",
+                    "audio": "5"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Sujud",
+                    "audio": "6"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Jalsa",
+                    "audio": "7"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Sujud",
+                    "audio": "6"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Fatiha",
+                    "audio": "3"
+                },
+                {
+                    "name": "Surah",
+                    "audio": "S2"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Qaumah",
+                    "audio": "5"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Sujud",
+                    "audio": "6"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Jalsa",
+                    "audio": "7"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Sujud",
+                    "audio": "6"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Tashahhud",
+                    "audio": "8"
+                },
+                {
+                    "name": "Tashahhud",
+                    "audio": "9"
+                },
+                {
+                    "name": "Salam",
+                    "audio": "10"
+                }
+            ]
+        },
+        {
+            "name": "Maghrib",
+            "audio": "maghrib",
+            "sequence": [
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Supplication",
+                    "audio": "2"
+                },
+                {
+                    "name": "Fatiha",
+                    "audio": "3"
+                },
+                {
+                    "name": "Surah",
+                    "audio": "S1"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Qaumah",
+                    "audio": "5"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Sujud",
+                    "audio": "6"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Jalsa",
+                    "audio": "7"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Sujud",
+                    "audio": "6"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Fatiha",
+                    "audio": "3"
+                },
+                {
+                    "name": "Surah",
+                    "audio": "S2"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Qaumah",
+                    "audio": "5"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Sujud",
+                    "audio": "6"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Jalsa",
+                    "audio": "7"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Sujud",
+                    "audio": "6"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Tashahhud",
+                    "audio": "8"
+                },
+                {
+                    "name": "Tashahhud",
+                    "audio": "9"
+                },
+                {
+                    "name": "Salam",
+                    "audio": "10"
+                }
+            ]
+        },
+        {
+            "name": "Isha",
+            "audio": "isha",
+            "sequence": [
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Supplication",
+                    "audio": "2"
+                },
+                {
+                    "name": "Fatiha",
+                    "audio": "3"
+                },
+                {
+                    "name": "Surah",
+                    "audio": "S1"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Qaumah",
+                    "audio": "5"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Sujud",
+                    "audio": "6"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Jalsa",
+                    "audio": "7"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Sujud",
+                    "audio": "6"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Fatiha",
+                    "audio": "3"
+                },
+                {
+                    "name": "Surah",
+                    "audio": "S2"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Qaumah",
+                    "audio": "5"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Sujud",
+                    "audio": "6"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Jalsa",
+                    "audio": "7"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Sujud",
+                    "audio": "6"
+                },
+                {
+                    "name": "Takbir",
+                    "audio": "1"
+                },
+                {
+                    "name": "Tashahhud",
+                    "audio": "8"
+                },
+                {
+                    "name": "Tashahhud",
+                    "audio": "9"
+                },
+                {
+                    "name": "Salam",
+                    "audio": "10"
+                }
+            ]
+        }
+    ]
+}
