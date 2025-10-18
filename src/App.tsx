@@ -126,9 +126,19 @@ function App() {
           currentAudioRef.current.pause()
           currentAudioRef.current.currentTime = 0
         }
+
+        let audio = currentAudioRef.current
+
+        if(!audio) {
+          audio = currentAudioRef.current = new Audio(audioPath);
+        } else {
+          audio.src = audioPath;
+          audio.load();
+          audio.currentTime = 0
+        }
         
-        const audio = new Audio(audioPath)
-        currentAudioRef.current = audio
+        
+        // currentAudioRef.current = audio
         
         audio.addEventListener('ended', () => {
           console.log('🏁 Sequence audio finished:', currentItem.name)
