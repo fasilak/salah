@@ -119,7 +119,7 @@ function App() {
         const basePath = import.meta.env.BASE_URL
         const audioPath = `${basePath}assets/audio/mp3/${selectedLanguage}/${currentItem.audio}.mp3`
         
-        console.log('🎵 Playing sequence audio:', currentItem.name, audioPath)
+        console.log('🎵 Playing sequence audio: v1', currentItem.name, audioPath)
         
         // Stop any currently playing audio
         if (currentAudioRef.current) {
