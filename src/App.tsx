@@ -67,21 +67,39 @@ function App() {
 
   const pauseSequence = () => {
     setIsSequencePaused(true)
+    
+    // Immediately pause the currently playing audio
     if (currentAudioRef.current) {
       currentAudioRef.current.pause()
+      console.log('⏸️ Audio paused immediately')
     }
+    
+    // Clear any pending timeouts to prevent auto-advance
     if (sequenceTimeoutRef.current) {
       clearTimeout(sequenceTimeoutRef.current)
       sequenceTimeoutRef.current = null
+      console.log('⏸️ Cleared pending timeout')
     }
+    
     console.log('⏸️ Sequence paused')
   }
 
   const resumeSequence = () => {
     setIsSequencePaused(false)
+    
+    // Resume the currently paused audio
     if (currentAudioRef.current) {
-      currentAudioRef.current.play()
+      currentAudioRef.current.play().catch((error) => {
+        console.error('❌ Error resuming audio:', error)
+        if (error.name === 'NotAllowedError') {
+          console.log('⚠️ Browser blocked audio resume. User interaction required.')
+          alert('🔊 Please click the Resume button again to continue.')
+          setIsSequencePaused(true)
+        }
+      })
+      console.log('▶️ Audio resumed')
     }
+    
     console.log('▶️ Sequence resumed')
   }
 
@@ -113,7 +131,7 @@ function App() {
 
   // Effect to play current sequence item when index changes
   useEffect(() => {
-    if (isSequencePlaying && selectedSalah && selectedSalah.sequence[currentSequenceIndex]) {
+    if (isSequencePlaying && !isSequencePaused && selectedSalah && selectedSalah.sequence[currentSequenceIndex]) {
       const currentItem = selectedSalah.sequence[currentSequenceIndex]
       
       const playAudio = () => {
@@ -163,14 +181,19 @@ function App() {
           
           // Use a small delay to ensure iOS processes the load
           setTimeout(() => {
-            audio.play().catch((error) => {
-              console.error('❌ Error playing sequence audio:', error)
-              if (error.name === 'NotAllowedError') {
-                console.log('⚠️ iOS autoplay blocked. Sequence paused.')
-                alert('🔊 iOS blocked autoplay. Please tap "Resume" to continue the sequence.')
-                setIsSequencePaused(true)
-              }
-            })
+            // Check if still not paused before playing
+            if (isSequencePlaying && !isSequencePaused) {
+              audio.play().catch((error) => {
+                console.error('❌ Error playing sequence audio:', error)
+                if (error.name === 'NotAllowedError') {
+                  console.log('⚠️ iOS autoplay blocked. Sequence paused.')
+                  alert('🔊 iOS blocked autoplay. Please tap "Resume" to continue the sequence.')
+                  setIsSequencePaused(true)
+                }
+              })
+            } else {
+              console.log('⏸️ Sequence was paused, skipping audio play')
+            }
           }, 100) // Small delay for iOS compatibility
         } else {
           console.error('❌ No audio element available for sequence playback')
@@ -331,49 +354,54 @@ function App() {
           {/* Sequence Controls */}
           <div className="sequence-controls">
             <button 
-              className="control-btn prev-btn"
+              className="control-btn icon-btn prev-btn"
               onClick={previousSequence}
               disabled={currentSequenceIndex === 0}
+              title="Previous Step"
             >
-              ⏮️ Previous
+              ⏮️
             </button>
 
             {isSequencePlaying ? (
               isSequencePaused ? (
                 <button 
-                  className="control-btn play-pause-btn"
+                  className="control-btn icon-btn play-pause-btn"
                   onClick={resumeSequence}
+                  title="Resume Sequence"
                 >
-                  ▶️ Resume
+                  ▶️
                 </button>
               ) : (
                 <button 
-                  className="control-btn play-pause-btn"
+                  className="control-btn icon-btn play-pause-btn"
                   onClick={pauseSequence}
+                  title="Pause Sequence"
                 >
-                  ⏸️ Pause
+                  ⏸️
                 </button>
               )
             ) : (
               <button 
-                className="control-btn play-pause-btn start-btn"
+                className="control-btn icon-btn play-pause-btn start-btn"
                 onClick={startSequence}
+                title="Start Sequence"
               >
-                ▶️ Start salah
+                ▶️
               </button>
             )}
 
             <button 
-              className="control-btn next-btn"
+              className="control-btn icon-btn next-btn"
               onClick={nextSequence}
               disabled={currentSequenceIndex === selectedSalah.sequence.length - 1}
+              title="Next Step"
             >
-              ⏭️ Next
+              ⏭️
             </button>
           </div>
 
           {/* Sequence List */}
-          <div className="sequence-list">
+          {/* <div className="sequence-list">
             <h3>Prayer Sequence:</h3>
             <div className="sequence-items">
               {selectedSalah.sequence.map((item, index) => (
@@ -393,7 +421,7 @@ function App() {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
 
           {/* Navigation Buttons */}
           <div className="action-buttons">

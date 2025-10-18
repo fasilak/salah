@@ -22,7 +22,7 @@
 }
 
 .header p {
-  color: #666;
+  color: #b2b0b0;
   margin-bottom: 1rem;
 }
 
@@ -314,10 +314,11 @@
 .current-step {
   text-align: center;
   margin: 2rem 0;
+  
 }
 
 .current-step h2 {
-  color: #333;
+  color: #c2bfbf;
   margin-bottom: 1rem;
 }
 
@@ -345,9 +346,9 @@
 .sequence-controls {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  align-items: center;
+  gap: 1.5rem;
   margin: 2rem 0;
-  flex-wrap: wrap;
 }
 
 .control-btn {
@@ -361,6 +362,18 @@
   font-size: 1rem;
   transition: all 0.3s ease;
   min-width: 120px;
+}
+
+.control-btn.icon-btn {
+  padding: 1rem;
+  border-radius: 8px;
+  min-width: 60px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
 }
 
 .control-btn:hover:not(:disabled) {
@@ -383,6 +396,11 @@
   background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
   font-size: 1.1rem;
   padding: 1rem 2rem;
+}
+
+.start-btn.icon-btn {
+  padding: 1rem;
+  font-size: 1.5rem;
 }
 
 .sequence-list {
@@ -466,8 +484,13 @@
 /* Mobile Responsive for Sequence Player */
 @media (max-width: 768px) {
   .sequence-controls {
-    flex-direction: column;
-    align-items: center;
+    gap: 1rem;
+  }
+
+  .control-btn.icon-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
   }
   
   .control-btn {
