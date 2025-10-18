@@ -120,56 +120,61 @@ function App() {
         const basePath = import.meta.env.BASE_URL
         const audioPath = `${basePath}assets/audio/mp3/${selectedLanguage}/${currentItem.audio}.mp3`
         
-        console.log('🎵 Playing sequence audio: v2', currentItem.name, audioPath)
+        console.log('🎵 Playing sequence audio:', currentItem.name, audioPath)
         
-        // Stop any currently playing audio
+        // For iOS compatibility, reuse the same audio element that was already "blessed" by user interaction
         if (currentAudioRef.current) {
-          currentAudioRef.current.pause()
-          currentAudioRef.current.currentTime = 0
-        }
-
-        let audio = currentAudioRef.current
-
-        if(!audio) {
-          audio = currentAudioRef.current = new Audio(audioPath);
-        } else {
-          audio.src = audioPath;
-          audio.load();
-          audio.currentTime = 0
-        }
-        
-        
-        // currentAudioRef.current = audio
-        
-        audio.addEventListener('ended', () => {
-          console.log('🏁 Sequence audio finished:', currentItem.name)
-          if (currentAudioRef.current === audio) {
-            currentAudioRef.current = null
-          }
+          const audio = currentAudioRef.current
           
-          // Auto-play next sequence item after 2 seconds if not paused
-          if (isSequencePlaying && !isSequencePaused && selectedSalah) {
-            const nextIndex = currentSequenceIndex + 1
-            if (nextIndex < selectedSalah.sequence.length) {
-              sequenceTimeoutRef.current = window.setTimeout(() => {
-                setCurrentSequenceIndex(nextIndex)
-              }, 2000)
-            } else {
-              // Sequence completed
-              setIsSequencePlaying(false)
-              console.log('🎉 Sequence completed!')
+          // Clear any existing event listeners
+          audio.onended = null
+          audio.onerror = null
+          
+          // Set up event handlers as properties (iOS compatible)
+          audio.onended = () => {
+            console.log('🏁 Sequence audio finished:', currentItem.name)
+            
+            // Auto-play next sequence item after 2 seconds if not paused
+            if (isSequencePlaying && !isSequencePaused && selectedSalah) {
+              const nextIndex = currentSequenceIndex + 1
+              if (nextIndex < selectedSalah.sequence.length) {
+                sequenceTimeoutRef.current = window.setTimeout(() => {
+                  setCurrentSequenceIndex(nextIndex)
+                }, 2000)
+              } else {
+                // Sequence completed
+                setIsSequencePlaying(false)
+                console.log('🎉 Sequence completed!')
+              }
             }
           }
-        })
-        
-        audio.addEventListener('error', (e) => {
-          console.error('❌ Sequence audio error:', e)
-          alert(`❌ Could not load audio: ${currentItem.name}`)
-        })
-        
-        audio.play().catch((error) => {
-          console.error('❌ Error playing sequence audio:', error)
-        })
+          
+          audio.onerror = (e) => {
+            console.error('❌ Sequence audio error:', e)
+            alert(`❌ Could not load audio: ${currentItem.name}`)
+          }
+          
+          // Change source and play (this maintains the "blessed" state on iOS)
+          audio.src = audioPath
+          audio.currentTime = 0
+          
+          // For iOS, we need to call load() after changing src
+          audio.load()
+          
+          // Use a small delay to ensure iOS processes the load
+          setTimeout(() => {
+            audio.play().catch((error) => {
+              console.error('❌ Error playing sequence audio:', error)
+              if (error.name === 'NotAllowedError') {
+                console.log('⚠️ iOS autoplay blocked. Sequence paused.')
+                alert('🔊 iOS blocked autoplay. Please tap "Resume" to continue the sequence.')
+                setIsSequencePaused(true)
+              }
+            })
+          }, 100) // Small delay for iOS compatibility
+        } else {
+          console.error('❌ No audio element available for sequence playback')
+        }
       }
       
       playAudio()
